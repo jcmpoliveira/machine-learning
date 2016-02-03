@@ -28,6 +28,24 @@ features_train, features_test, labels_train, labels_test = preprocess()
 ### your code goes here ###
 
 
+from sklearn.naive_bayes import GaussianNB
+
+classif = GaussianNB()
+
+t0 = time()
+classif.fit(features_train, labels_train)
+print "training time:", round(time()-t0, 3), "s"	#### training time: 1.879 s
+
+t0 = time()
+prediction = classif.predict(features_test)
+print "prediction time:", round(time()-t0, 3), "s"	#### prediction time: 0.193 s
+
+accu = classif.score(features_test,labels_test)		
+
+print accu
+
+
+
 #########################################################
 
 
